@@ -18,7 +18,19 @@ Once deployed, frames can be received using tcpdump as demonstrated below, or us
 
 CANBridge targets Arduino Mega and Nano boards. Mega should be used for development due to the convenience of multiple Serial interfaces. ESP8266 and MCP2515 communication modules are required. ESP8266 with firmware version 1.5.4 (pretty old) was tested.
 
-TODO: add pinouts
+Mega Pinouts:
+
+D21 -> MCP INT
+D52 -> MCP SCK
+D51 -> MCP SI
+D50 -> MCP SO
+D53 -> MCP CS
+
+D19 -> ESP TX
+D18 -> ESP RX
+
+Nano Pinouts:
+TODO
 
 ## Demo
 
