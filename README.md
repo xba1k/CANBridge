@@ -20,15 +20,15 @@ CANBridge targets Arduino Mega and Nano boards. Mega should be used for developm
 
 Mega Pinouts:
 
-D21 -> MCP INT
-D52 -> MCP SCK
-D51 -> MCP SI
-D50 -> MCP SO
-D53 -> MCP CS
-
-D19 -> ESP TX
-D18 -> ESP RX
-
+D21 -> MCP INT  
+D52 -> MCP SCK  
+D51 -> MCP SI  
+D50 -> MCP SO  
+D53 -> MCP CS  
+  
+D19 -> ESP TX  
+D18 -> ESP RX  
+  
 Nano Pinouts:
 TODO
 
