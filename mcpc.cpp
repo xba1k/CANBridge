@@ -6,7 +6,7 @@ void init_mcpc() {
 	CAN = new MCP_CAN(CAN_CS_PIN);
 
 	while (CAN->begin(CAN_SPEED, MCP_8MHz) != CAN_OK) {
-		DEBUGP(buf, "Unable to start CAN bus\n");
+		DEBUGP("Unable to start CAN bus\n");
 		delay(1000);
 	}
 }
