@@ -14,13 +14,15 @@ See settings.h for wifi credentials and various other parameters.
 
 Once deployed, frames can be received using tcpdump as demonstrated below, or using a dedicated application such as https://github.com/xba1k/can_frame_decoder_c
 
+When flashing Nano power and/or serial lines to ESP should be disconnected so there is no concurrent access to the Serial. Also MCP library tries to print some messages during initialization, they will error out in ESP but don't seem to confuse it. 
+
 # Hardware
 
 CANBridge targets Arduino Mega and Nano boards. Mega should be used for development due to the convenience of multiple Serial interfaces. ESP8266 and MCP2515 communication modules are required. ESP8266 with firmware version 1.5.4 (pretty old) was tested.
 
 Mega Pinouts:
 
-D21 -> MCP INT  
+D21 -> MCP INT (optional)  
 D52 -> MCP SCK  
 D51 -> MCP SI  
 D50 -> MCP SO  
@@ -30,7 +32,14 @@ D19 -> ESP TX
 D18 -> ESP RX  
   
 Nano Pinouts:
-TODO
+D02 -> MCP INT (optional)  
+D13 -> MCP SCK  
+D11 -> MCP SI  
+D12 -> MCP SO  
+D10 -> MCP CS  
+  
+D01 -> ESP TX  
+D00 -> ESP RX  
 
 ## Demo
 
