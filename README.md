@@ -31,7 +31,7 @@ D53 -> MCP CS
 D19 -> ESP TX  
 D18 -> ESP RX  
   
-Nano Pinouts:
+Nano Pinouts:  
 D02 -> MCP INT (optional)  
 D13 -> MCP SCK  
 D11 -> MCP SI  
