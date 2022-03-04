@@ -20,7 +20,7 @@ CANBridge targets Arduino Mega and Nano boards. Mega should be used for developm
 
 TODO: add pinouts
 
-##Demo
+## Demo
 
 ```
 sudo tcpdump -n -A ip and udp and port 1080
