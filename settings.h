@@ -22,6 +22,11 @@
 
 // CANBus speed and MCP2515 chip select pin (10 for Nano, 53 for Mega)
 #define CAN_SPEED CAN_500KBPS
+
+#ifdef MEGA
 #define CAN_CS_PIN 53
+#else
+#define CAN_CS_PIN 10
+#endif
 
 #endif
