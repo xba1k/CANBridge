@@ -12,7 +12,7 @@ CAN-BUS Shield library from arduino.cc was used for the integration with MCP2515
 
 See settings.h for wifi credentials and various other parameters.
 
-Once deployed, frames can be received using tcpdump as demonstrated below, or using a dedicated application such as https://github.com/xba1k/can_frame_decoder_c
+Once deployed, frames can be received using tcpdump as demonstrated below, or using a dedicated application such as [can_frame_decoder_c](https://github.com/xba1k/can_frame_decoder_c), [can_frame_decoder_java](https://github.com/xba1k/can_frame_decoder_java) or  [can_frame_decoder_python](https://github.com/xba1k/can_frame_decoder_python)
 
 When flashing Nano power and/or serial lines to ESP should be disconnected so there is no concurrent access to the Serial. Also MCP library tries to print some messages during initialization, they will error out in ESP but don't seem to confuse it. 
 
