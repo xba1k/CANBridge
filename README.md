@@ -41,7 +41,7 @@ D10 -> MCP CS
 D01 -> ESP TX  
 D00 -> ESP RX  
 
-![alt text](https://github.com/xba1k/CANBridge/blob/main/canbridge.png?raw=true)
+![alt text](https://github.com/xba1k/CANBridge/blob/main/canbridge.jpg?raw=true)
 
 ## Demo
 
