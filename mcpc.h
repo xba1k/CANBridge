@@ -13,6 +13,7 @@ extern MCP_CAN *CAN;
 
 void init_mcpc();
 uint8_t recv_frame(unsigned long *id, uint8_t *frame, uint8_t *len);
+uint8_t send_frame(unsigned long id, uint8_t *frame, uint8_t len);
 
 #endif
 

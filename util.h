@@ -6,7 +6,7 @@
 #include <Arduino.h>
 #include "settings.h"
 
-#ifdef MEGA
+#if defined(MEGA) || defined(ESP8266)
 #define DEBUG 1
 #else
 #undef DEBUG

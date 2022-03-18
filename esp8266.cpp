@@ -1,6 +1,66 @@
 #include "util.h"
 #include "esp8266.h"
 
+#if defined(ESP8266)
+
+WiFiUDP Udp;
+
+int init_wifi() {
+
+	WiFi.persistent(false);
+	WiFi.forceSleepWake();
+	WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+
+	DEBUGP("Connecting to wifi...");
+	while (WiFi.status() != WL_CONNECTED) {
+		delay(500);
+		DEBUGP(".");
+	}
+
+	DEBUGP("Connected, IP address: %s\r\n", WiFi.localIP().toString().c_str());
+	return 1;
+
+}
+
+int wifi_send_data(uint8_t *data, int len) {
+
+	int result = 0;
+	IPAddress broadcast_addr;
+	if (!broadcast_addr.fromString(BROADCAST_ADDR)) {
+		DEBUGP("Couldn't parse IP address %s\r\n", BROADCAST_ADDR);
+	}
+
+	Udp.beginPacket(broadcast_addr, BROADCAST_PORT);
+	Udp.write(data, len);
+	result = Udp.endPacket();
+	return result;
+
+}
+
+int init_server() {
+	return Udp.begin(BROADCAST_PORT);
+}
+
+int recv_datagram(uint8_t *data, int len) {
+
+	int result = 0;
+	int packet_len = Udp.parsePacket();
+
+	//DEBUGP("parsePacket() = %u\r\n", packet_len);
+
+	if (packet_len > 0 && packet_len <= len) {
+		result = Udp.read(data, len);
+
+		DEBUGP("read() = %u\r\n", result);
+		//Udp.flush();
+	}
+
+	return result;
+
+}
+
+#else
+
 #define BUF_SIZ 256
 char wifi_buf[BUF_SIZ];
 
@@ -137,3 +197,13 @@ int init_wifi() {
 	return 1;
 
 }
+
+int init_server() {
+	return 1;
+}
+
+int recv_datagram(uint8_t *data, int len) {
+	return 0;
+}
+
+#endif

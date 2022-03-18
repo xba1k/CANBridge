@@ -59,7 +59,9 @@ extern char *__brkval;
 
 int freeMemory() {
 	char top;
-#ifdef __arm__
+#ifdef ESP8266
+	return ESP.getFreeHeap();
+#elif __arm__
   return &top - reinterpret_cast<char*>(sbrk(0));
 #elif defined(CORE_TEENSY) || (ARDUINO > 103 && ARDUINO != 151)
 	return &top - __brkval;
